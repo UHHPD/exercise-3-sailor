@@ -26,7 +26,7 @@ int main() {
 	daten.push_back(zahl);
     }
 
-    for(double mu = 0; mu < 6.; mu += 0.1) {
+    for(double mu = 0; mu < 6.; mu += 0.01) {
       fout << mu << " " << prob(daten, mu) << endl;
     }
 
