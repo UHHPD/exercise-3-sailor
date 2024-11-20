@@ -16,7 +16,8 @@ int main() {
 
 
     ifstream fin("datensumme.txt");
-    ofstream fout("likelihood.txt");
+    //ofstream fout("likelihood.txt");
+    ofstream fout("nll.txt");
 
     int zahl;
     std::vector<int> daten;
@@ -26,8 +27,12 @@ int main() {
 	daten.push_back(zahl);
     }
 
-    for(double mu = 0; mu < 6.; mu += 0.01) {
+    /* for(double mu = 0; mu < 6.; mu += 0.01) {
       fout << mu << " " << prob(daten, mu) << endl;
+      } */
+
+    for(double mu = 0; mu < 6.; mu += 0.01) {
+      fout << mu << " " << -2*log(prob(daten, mu)) << endl;
     }
 
     fin.close();
