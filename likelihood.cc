@@ -16,15 +16,20 @@ int main() {
 
 
     ifstream fin("datensumme.txt");
+    ofstream fout("likelihood.txt");
+
     int zahl;
     std::vector<int> daten;
-    double mu = 3.11538;
 
-    for(int i = 0 ; i < 234 ; ++i) {
+    for(int i = 0; i < 234; ++i) {
         fin >> zahl;
 	daten.push_back(zahl);
     }
 
-    cout << "Likehood: " << prob(daten, mu) << endl;
+    for(double mu = 0; mu < 6.; mu += 0.1) {
+      fout << mu << " " << prob(daten, mu) << endl;
+    }
+
     fin.close();
+    fout.close();
 }
