@@ -3,21 +3,21 @@
 #include <vector>
 #include <cmath>
 
-double prob(std::vector<int> daten,double mu) {
-    double p = 1;
-        
-    for(int k : daten){
-        p *= pow(mu, k) * exp(-mu) / tgamma(k + 1);
-        
-    }
-    return p;
+double prob(std::vector<int> daten, double mu) {
+  double p = 1.;
+  for(int k: daten) {
+    p *= pow(mu, k)*exp(-mu)/tgamma(k+1);
+  }
+  return p;
 }
+
 int main() {
     using namespace std;
     vector<int> daten(234);
     
 
     ifstream fin("datensumme.txt");
+
     int n_i;
     for(int i = 0 ; i < 234 ; ++i) {
         fin >> n_i;
@@ -52,3 +52,4 @@ int main() {
     //cout<<z<<endl;
     //cout<<erf(z/sqrt(2))<<endl;
 }
+
